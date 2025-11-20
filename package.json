@@ -1,0 +1,16 @@
+{
+  "name": "restaurante-stack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "abre-restaurante": "node main.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "javascript-obfuscator": "^4.1.1",
+    "prompt-sync": "^4.2.0"
+  }
+}
