@@ -1,5 +1,6 @@
 import promptSync from "prompt-sync";
 import { HashTable } from "./structs/hash-table.js";
+import { criarBST, inserirBST, listarBST } from "./structs/bst-cardapio.js";
 
 const prompt = promptSync();
 const cardapio = new HashTable(50);
@@ -16,7 +17,8 @@ export function iniciarCardapio() {
     [2] Remover Prato
     [3] Ver Cardápio Completo
     [4] Pesquisar Prato
-    [5] Voltar ao Menu Principal
+    [5] Ver Cardápio Ordenado por Preço (BST)
+    [6] Voltar ao Menu Principal
     `.trim();
 
   console.clear();
@@ -34,6 +36,7 @@ export function iniciarCardapio() {
       } else {
         console.log("Preço inválido.");
       }
+
     } else if (acao === "2") {
       const nome = prompt("Nome do Prato para remover: ");
       const removeu = cardapio.remove(nome);
@@ -43,6 +46,7 @@ export function iniciarCardapio() {
       } else {
         console.log(`Erro: O prato "${nome}" não existe.`);
       }
+
     } else if (acao === "3") {
       console.log("\n--- CARDÁPIO ATUAL ---");
       const todosPratos = cardapio.toObject();
@@ -54,10 +58,11 @@ export function iniciarCardapio() {
         for (const prato of chaves) {
           // percorre os nomes dos pratos
           console.log(
-            `- ${prato.padEnd(20, ".")} R$ ${todosPratos[prato].toFixed(2)}` // formata a saída
+            `- ${prato.padEnd(20, ".")} R$ ${todosPratos[prato].toFixed(2)}`
           );
         }
       }
+
     } else if (acao === "4") {
       const nome = prompt("Nome do Prato para buscar: ").trim();
       let prato = cardapio.get(nome); // tenta buscar diretamente pela chave (nome do prato)
@@ -66,8 +71,33 @@ export function iniciarCardapio() {
       } else {
         console.log(`Prato encontrado: "${nome}" — R$ ${prato.toFixed(2)}`);
       }
+
     } else if (acao === "5") {
+      console.log("\n--- CARDÁPIO ORDENADO POR PREÇO (BST) ---");
+
+      const todos = cardapio.toObject();
+      const nomes = Object.keys(todos);
+
+      if (nomes.length === 0) {
+        console.log("O cardápio está vazio.");
+      } else {
+        const arvore = criarBST();
+
+        // insere todos os pratos na árvore
+        for (const nome of nomes) {
+          inserirBST(arvore, nome, todos[nome]);
+        }
+        const ordenados = listarBST(arvore);
+        for (const item of ordenados) {
+          console.log(
+            `- ${item.nome.padEnd(20, ".")} R$ ${item.preco.toFixed(2)}`
+          );
+        }
+      }
+
+    } else if (acao === "6") {
       break;
+
     } else {
       console.log("Opção inválida!");
     }
