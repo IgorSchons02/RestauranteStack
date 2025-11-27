@@ -15,7 +15,6 @@ O sistema permite cadastrar pratos, colocar pedidos em fila de preparo, registra
 
 - **Busca Binária (Binary Search):** Utilizada para localizar o status de um pedido (seja na fila ou já entregue) pesquisando pelo nome do cliente.
 - **Bubble Sort:** Utilizado para ordenar a lista de nomes dos clientes antes de executar a Busca Binária (necessário para a busca binária).
-- **Insertion Sort:** Utilizado para gerar o relatório de clientes atendidos, organizando os nomes em ordem alfabética para exibição ao usuário.
 
 ---
 
