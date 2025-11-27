@@ -19,11 +19,8 @@ function render() {
   const ulPilha = document.getElementById("pilhaList");
   const arrayPilha = pilha.toArray();
 
-  // inverte o array para mostrar o último entregue primeiro
-  ulPilha.innerHTML = [...arrayPilha]
-    .reverse()
-    .map((p) => `<li>${p.nome}</li>`)
-    .join("");
+  // mostra o último entregue primeiro
+  ulPilha.innerHTML = [...arrayPilha].map((p) => `<li>${p.nome}</li>`).join("");
 }
 
 // lancar pedido novo na fila
@@ -64,7 +61,7 @@ window.entregar = function () {
 
 // buscar pedido pelo nome
 window.procurarPedido = function () {
-  const nomeBusca = document.getElementById("nomeCliente").value.trim();
+  const nomeBusca = document.getElementById("searchCliente").value.trim();
   const resultsEl = document.getElementById("searchResults");
 
   if (!nomeBusca) {
