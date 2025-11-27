@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cardápio - Restaurante Stack</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="container py-4">
+    <div class="mb-4">
+      <a href="index.html" class="btn btn-outline-primary text-decoration-none">
+        &larr; Voltar ao Menu Principal
+      </a>
+    </div>
+
+    <h1 class="text-center mb-5 text-primary">Gestão de Cardápio</h1>
+
+    <div class="card mb-4 shadow-sm border-secondary">
+      <div class="card-header">Adicionar Novo Prato</div>
+      <div class="card-body">
+        <div class="row g-3">
+          <div class="col-md-5">
+            <input
+              type="text"
+              id="nomePrato"
+              class="form-control"
+              placeholder="Nome do Prato"
+            />
+          </div>
+          <div class="col-md-4">
+            <input
+              type="number"
+              id="precoPrato"
+              class="form-control"
+              placeholder="Preço (ex: 25.50)"
+            />
+          </div>
+          <div class="col-md-3">
+            <button onclick="adicionar()" class="btn btn-primary w-100">
+              Adicionar Prato
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-5 shadow-sm border-secondary">
+      <div class="card-header text-warning">Pesquisar Prato (Hash Table)</div>
+      <div class="card-body">
+        <div class="input-group mb-3">
+          <input
+            type="text"
+            id="searchPrato"
+            class="form-control"
+            placeholder="Nome exato do prato"
+          />
+          <button onclick="pesquisar()" class="btn btn-warning">
+            Pesquisar
+          </button>
+        </div>
+        <div id="searchResult" class="p-2 fw-bold text-warning"></div>
+      </div>
+    </div>
+
+    <div class="card shadow-sm border-info bg-opacity-10 bg-info text-white">
+      <div
+        class="card-header border-info text-info fw-bold d-flex justify-content-between align-items-center flex-wrap gap-2"
+      >
+        <span>Lista de Pratos</span>
+        <div>
+          <button onclick="ordenarBST()" class="btn btn-sm btn-success">
+            Ordenar por Preço (BST)
+          </button>
+          <button onclick="render()" class="btn btn-sm btn-secondary">
+            Mostrar a ordenação original
+          </button>
+        </div>
+      </div>
+      <div class="card-body">
+        <ul id="lista" class="list-group list-group-flush"></ul>
+      </div>
+    </div>
+
+    <script type="module" src="cardapio.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
