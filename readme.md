@@ -7,9 +7,10 @@ O sistema permite cadastrar pratos, colocar pedidos em fila de preparo, registra
 
 ### Estruturas de Dados Utilizadas
 
-- **Tabela Hash (HashTable):** Implementada no módulo de **Cardápio**. Utilizada para armazenar os pratos e seus respectivos preços.
+- **Tabela Hash (HashTable):** Implementada no módulo de **Cardápio**. Utilizada para armazenar os pratos e seus respectivos preços. Implementada no módulo de **Mesas**. Utilizada para armazenar as mesas e quantidade de pessoas alocadas.
 - **Fila (Queue):** Implementada no módulo de **Pedidos**. Utilizada para gerenciar a **Fila de Preparo** da cozinha, garantindo que os pedidos sejam atendidos na ordem de chegada (lógica FIFO - _First In, First Out_).
 - **Pilha (Stack):** Implementada no módulo de **Pedidos**. Utilizada para armazenar o **Histórico de Pedidos Entregues**, permitindo acesso imediato ao último pedido que saiu da cozinha (lógica LIFO - _Last In, First Out_).
+- **Árvore Binária:** Implementada no módulo de **Cardápio**. Utilizada para ordenar os pratos por ordem de preço.
 
 ### Algoritmos Utilizados
 
