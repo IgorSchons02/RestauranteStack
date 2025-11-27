@@ -4,9 +4,6 @@ import { criarBST, inserirBST, listarBST } from "./structs/bst-cardapio.js";
 // cria a hash table do cardapio
 const cardapio = new HashTable(50);
 
-// Dados iniciais para teste
-cardapio.set("batata frita", 12.5);
-cardapio.set("refrigerante", 6.0);
 
 // renderiza o cardapio
 window.render = function (listaOrdenada = null) {
